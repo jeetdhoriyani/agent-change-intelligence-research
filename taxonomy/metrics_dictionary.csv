@@ -1,0 +1,10 @@
+metric_name,level,definition,numerator,denominator,direction,notes
+weekly_active_repositories,adoption,Distinct repositories with at least one successful analysis in seven days,,,higher,Prefer repository activity over user counts
+safety_recall,quality,Fraction of regression-revealing tests selected,affected_tests_selected,all_affected_tests,higher,Primary safety metric
+test_reduction,efficiency,Fraction of full test count avoided,full_test_count-selected_test_count,full_test_count,higher,Count based
+runtime_reduction,efficiency,Fraction of full-suite runtime avoided,full_runtime-selected_runtime,full_runtime,higher,Exclude analysis time
+net_time_saved,value,Full runtime minus analysis and selected runtime,,,higher,End-to-end value
+full_suite_disagreement_rate,safety,Fraction of failures detected only by the full suite,failures_only_full_suite,all_failures,lower,Must be monitored continuously
+recommendation_acceptance,behavior,Fraction of recommended tests actually executed,recommended_tests_executed,recommended_tests_generated,higher,May be agent or human driven
+agent_task_success,agent_outcome,Fraction of benchmark tasks completed correctly,successful_tasks,total_tasks,higher,Compare assisted versus baseline
+agent_token_reduction,agent_outcome,Fraction of model tokens avoided,baseline_tokens-assisted_tokens,baseline_tokens,higher,Control for task success
