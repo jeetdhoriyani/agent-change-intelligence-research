@@ -1,0 +1,7 @@
+use_case,local_developer,coding_agent,pre_commit,pull_request_ci,main_branch_ci,large_monorepo,primary_value,primary_risk,evidence_status
+find_affected_tests,high,high,high,high,medium,high,reduce_validation_cost,missed_regression,hypothesis
+explain_patch_impact,medium,very_high,medium,high,medium,high,improve_context_and_review,false_confidence,hypothesis
+select_context_files,low,very_high,low,medium,low,high,reduce_tokens_and_tool_calls,missing_critical_context,hypothesis
+rank_tests_under_budget,medium,high,medium,high,high,very_high,maximize_fault_detection_per_second,budget_optimization_error,hypothesis
+detect_untested_changes,high,high,medium,high,high,high,identify_validation_gaps,false_positive_risk,hypothesis
+generate_validation_plan,medium,very_high,medium,high,medium,high,make_agent_actions_auditable,invalid_plan,hypothesis
