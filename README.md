@@ -1,6 +1,36 @@
 # Agent Change Intelligence Research
 
-Open research project mapping the open-source landscape for change-impact analysis and regression-test selection, while defining a measurable, privacy-preserving framework for agent usage and product value.
+Research-backed prototype for agent-native Python change-impact analysis and regression-test selection.
+
+## Runnable prototype
+
+The first executable version identifies Python files and function/class definitions changed since a Git reference.
+
+```bash
+python -m pip install -e '.[dev]'
+changeintel --repo . --base HEAD~1
+changeintel --repo . --base origin/main --format json
+```
+
+Python API:
+
+```python
+from changeintel import analyze_repository
+
+result = analyze_repository(".", base_ref="HEAD~1")
+for symbol in result.symbols:
+    print(symbol.change_type, symbol.path, symbol.qualified_name)
+```
+
+Current scope:
+
+- Python repositories
+- Git diffs, including added, deleted, modified, and renamed files
+- functions, async functions, classes, and qualified method names
+- human-readable and versioned JSON output
+- local-only execution with no telemetry
+
+The next product increment will build a reverse import graph and rank affected pytest tests.
 
 ## Research questions
 
@@ -24,12 +54,10 @@ The market gap is not test selection alone. It is an agent-native change-intelli
 
 ## Repository map
 
+- `src/changeintel/`: executable Python package
+- `tests/`: unit and integration tests
 - `landscape/`: inclusion rules and competitor database
 - `taxonomy/`: use-case matrix, metric definitions, and telemetry schema
 - `studies/`: analysis scripts and benchmark design
 - `datasets/`: candidate tools and benchmark repositories
 - `reports/`: published findings
-
-## Status
-
-Research scaffold initialized. Data collection and competitor verification are the first active workstreams.
